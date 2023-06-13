@@ -4,9 +4,12 @@ import { StudentHandler } from './adapters/student.handler';
 import { StudentRepository } from './adapters/student.repository';
 import { Student } from './domain/student';
 
+
+const { MONGO_URL } = process.env
+
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://localhost/test', {}),
+    MongooseModule.forRoot(MONGO_URL, {}),
     MongooseModule.forFeature([
       {
         name: Student.name,
